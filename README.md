@@ -202,6 +202,7 @@ connection.end();
 >   - L'intégration d'une API de payment
  
 #### Package intéressant à utiliser 
+>    - Gestion des authentifications avec des token (JWT)[https://github.com/auth0/node-jsonwebtoken]
 >    - Gestion des sessions [express-session](https://www.npmjs.com/package/express-sessions)
 >    - Gestion des routes [express-enrouten](https://www.npmjs.com/package/express-enrouten)
 >    - ORM [SequelizeJS](http://docs.sequelizejs.com/)
