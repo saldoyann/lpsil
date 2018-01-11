@@ -1,20 +1,22 @@
 <% var title = 'Formulaire login' %>
 <% include head %>
-
+ 
 <h1>Login</h1>
 Accés au <a href="/profile">/profil</a>
 <form method="post" action="/login">
   <p>
-    <label>Username:</label>
-    <input type="text" name="username">
+    <label>Nom:</label>
+    <input type="text" name="nom">
   </p>
   <p>
     <label>Password:</label>
-    <input type="text" name="password">
+    <input type="text" name="mdp">
   </p>
   <p>
     <input type="submit" value="Login">
   </p>
 </form>
+
+<p><a href="/inscription">S'inscrire</a></p>
 
 <% include foot %>

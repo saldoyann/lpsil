@@ -1,0 +1,14 @@
+
+<% var title = 'HOME' %>
+<% include head %>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+<p id="userName">Bonjour </p>
+<script>
+  if(document.cookie){
+    var s= document.getElementById("userName");
+  	s.value = document.cookie.replace('name=','');
+  	$("#userName").append(s.value);
+  } 
+  </script>
+  <a href="/profil">Acceder a votre profil</a>
+<% include foot %>

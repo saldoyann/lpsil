@@ -1,0 +1,28 @@
+<% var title = 'Formulaire inscription' %>
+<% include head %>
+ 
+<h1>Inscription</h1>
+
+<form method="post" action="/inscription">
+  <p>
+    <label>Nom:</label>
+    <input type="text" name="nom">
+  </p>
+  <p>
+    <label>Prenom:</label>
+    <input type="text" name="prenom">
+  </p>
+  <p>
+    <label>Password:</label>
+    <input type="text" name="mdp">
+  </p>
+  <p>
+    <label>Email:</label>
+    <input type="text" name="email">
+  </p>
+  <p>
+    <input type="submit" value="Inscription">
+  </p>
+</form>
+
+<% include foot %>
