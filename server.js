@@ -43,15 +43,31 @@ app.get('/ping', function(req, res){
 });
 
 app.get('/home', function(req, res){
-    res.render('Acchome');
+    res.render('home');
+});
+
+app.get('/profil', function(req, res){
+    var id = req.query.id;
+    var nom = req.query.nom;
+    var prenom = req.query.prenom;
+    var email = req.query.email;
+    res.render('profil', {id: id, nom: nom, prenom: prenom, email: email});
+});
+
+app.get('/modifMdp', function(req, res){
+    res.render('modifMdp');
 });
 
 app.post('/login',userController.connect)
 
 app.post('/inscription',userController.inscription)
 
+app.post('/home',userController.getProfil)
+
+app.post('/profil', userController.modifProfil)
+
+app.post('/modifMdp', userController.changerMdp)
 
 app.listen(process.env.PORT || 1313);
 
 // app.delete('', userController.suprr)
-

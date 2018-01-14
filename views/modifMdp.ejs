@@ -1,0 +1,20 @@
+<% var title = 'Changer son mot de passe' %>
+<% include head %>
+
+<h1>Modifier votre profil</h1>
+
+<form method="post">
+  <p>
+    <label>Ancien mot de passe :</label>
+    <input type="password" name="ancienMdp">
+  </p>
+  <p>
+    <label>Nouveau mot de passe :</label>
+    <input type="password" name="nouveauMdp">
+  </p>
+  <p>
+    <input type="submit" value="Confirmation changement de mot de passe">
+  </p>
+</form>
+
+<% include foot %>

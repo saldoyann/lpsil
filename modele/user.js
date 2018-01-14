@@ -5,7 +5,8 @@ const User = sequelize.define('user', {
 	nom: Sequelize.STRING,
 	prenom: Sequelize.STRING,
 	mdp: Sequelize.STRING,
-	email: Sequelize.STRING
+	email: Sequelize.STRING,
+	admin: Sequelize.INTEGER
 }
 , {
   tableName : 'user',

@@ -1,14 +1,32 @@
 
 <% var title = 'HOME' %>
 <% include head %>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <p id="userName">Bonjour </p>
 <script>
   if(document.cookie){
     var s= document.getElementById("userName");
-  	s.value = document.cookie.replace('name=','');
+  	s.value = document.cookie.replace(/name=|;|id=|/g,'');
   	$("#userName").append(s.value);
-  } 
+  }
   </script>
-  <a href="/profil">Acceder a votre profil</a>
+
+<form method="post">
+  <p id="ajoutButton"></p>
+  <p>
+    <input type="submit" value="Accéder à votre profil">
+  </p>
+</form>
+
+<script>
+function ajoutInput(){
+var insertion = document.getElementById("ajoutButton");
+var input = document.createElement("input");
+input.setAttribute("name","voirProfil");
+input.setAttribute("type","hidden");
+input.setAttribute("value",s.value);
+insertion.appendChild(input);
+}
+ajoutInput();
+</script>
 <% include foot %>
