@@ -6,6 +6,8 @@ require('./base.js');
 var app = express();
 var user = require('./modele/user.js');
 var userController = require('./controller/user.js');
+var produit = require('./modele/produit.js');
+var produitController = require('./controller/produit.js');
 var session = require('express-session');
 
 // config
@@ -58,15 +60,31 @@ app.get('/modifMdp', function(req, res){
     res.render('modifMdp');
 });
 
+app.get('/connectionAdmin', function(req, res){
+    res.render('connectionAdmin');
+});
+
+app.get('/panneauAdmin', function(req, res){
+    res.render('panneauAdmin');
+});
+
+app.get('/ajoutProduit', function(req, res){
+    res.render('ajoutProduit');
+});
+
 app.post('/login',userController.connect)
 
 app.post('/inscription',userController.inscription)
 
 app.post('/home',userController.getProfil)
 
-app.post('/profil', userController.modifProfil)
+app.post('/profil',userController.modifProfil)
 
-app.post('/modifMdp', userController.changerMdp)
+app.post('/modifMdp',userController.changerMdp)
+
+app.post('/connectionAdmin', userController.connectAdmin)
+
+app.post('/ajoutProduit', produitController.ajout)
 
 app.listen(process.env.PORT || 1313);
 

@@ -15,7 +15,7 @@ module.exports.connect = function(req,res){
 		res.redirect("/home"/*,{result :req.session.user }*/);
 	}).catch(function(err){
 		console.log(err)
-		res.render("error",{result : "KO"});
+		res.render("error",{result : "Le nom ou le mot de passe est incorrect"});
 	});
 }
 
@@ -69,5 +69,25 @@ module.exports.changerMdp = function(req,res){
 		res.redirect('/home');
 	}).catch(function(err){
 		res.render("error",{result: "KO"});
+	});
+}
+
+module.exports.connectAdmin = function(req,res){
+
+	User.findAll({
+		where: {
+			nom: req.body.nomAdmin,
+			mdp: req.body.mdpAdmin,
+			admin: 1
+		}
+	}).then(function(user){
+		req.session.user=user[0].dataValues.id;
+ 		res.cookie( "id",req.session.user ,{ maxAge: 1000 * 60 * 10, httpOnly: false });
+		//res.cookie( "id",user[0].dataValues.id ,{ maxAge: 1000 * 60 * 10, httpOnly: false });
+
+		res.redirect("/panneauAdmin"/*,{result :req.session.user }*/);
+	}).catch(function(err){
+		console.log(err)
+		res.render("error",{result : "Le compte n'existe pas ou n'est pas un administrateur du site"});
 	});
 }
