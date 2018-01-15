@@ -1,4 +1,3 @@
-
 <% var title = 'HOME' %>
 <% include head %>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -10,6 +9,16 @@
   	$("#userName").append(s.value);
   }
   </script>
+
+  <p> <% for(var i in %> <%=id%> <%){
+    <table>
+      <tr>
+        <td>Numero du produit</td>
+        <td>%><%= id %><%</td>
+      </tr>
+    </table>
+  } %> </p>
+
 
 <form method="post">
   <p id="ajoutButton"></p>

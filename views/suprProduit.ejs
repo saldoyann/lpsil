@@ -1,0 +1,16 @@
+<% var title = 'Suppression produit' %>
+<% include head %>
+
+<h1>Supprimer un produit à acheter</h1>
+
+<form method="post" action="/suprProduit">
+  <p>
+    <label>Id du produit :</label>
+    <input type="number" name="idProduit">
+  </p>
+  <p>
+    <input type="submit" value="Supprimer ce produit">
+  </p>
+</form>
+
+<% include foot %>

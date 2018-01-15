@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 
 const Produit = sequelize.define('produit', {
   nomProduit: Sequelize.STRING,
+  descriptionProduit: Sequelize.STRING,
   prixProduit: Sequelize.INTEGER,
   quantiteProduit: Sequelize.INTEGER
 }

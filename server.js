@@ -44,9 +44,7 @@ app.get('/ping', function(req, res){
     res.send('ping');
 });
 
-app.get('/home', function(req, res){
-    res.render('home');
-});
+app.get('/home', produitController.getProduit);
 
 app.get('/profil', function(req, res){
     var id = req.query.id;
@@ -72,6 +70,10 @@ app.get('/ajoutProduit', function(req, res){
     res.render('ajoutProduit');
 });
 
+app.get('/suprProduit', function(req, res){
+    res.render('suprProduit');
+});
+
 app.post('/login',userController.connect)
 
 app.post('/inscription',userController.inscription)
@@ -85,6 +87,8 @@ app.post('/modifMdp',userController.changerMdp)
 app.post('/connectionAdmin', userController.connectAdmin)
 
 app.post('/ajoutProduit', produitController.ajout)
+
+app.post('/suprProduit', produitController.suprProduit)
 
 app.listen(process.env.PORT || 1313);
 

@@ -1,12 +1,16 @@
 <% var title = 'Ajout produit' %>
 <% include head %>
 
-<h1>Ajouter un produit a acheter</h1>
+<h1>Ajouter un produit à acheter</h1>
 
 <form method="post" action="/ajoutProduit">
   <p>
     <label>Nom du produit :</label>
     <input type="text" name="nomProduit">
+  </p>
+  <p>
+    <label>Ajouter une description pour ce produit :</label>
+    <textarea rows="4" cols="50" name="descriptionProduit"> </textarea>
   </p>
   <p>
     <label>Prix (euros) du produit au kilo : </label>
