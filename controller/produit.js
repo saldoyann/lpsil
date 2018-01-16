@@ -1,5 +1,5 @@
 var Produit = require('../modele/produit.js');
-var jsonQ=require("jsonq");
+var sequelize = require('../base.js');
 
 module.exports.ajout = function(req,res){
 	//console.log(req.body);
@@ -26,22 +26,8 @@ module.exports.suprProduit = function(req,res){
 
 module.exports.getProduit = function(req,res){
 
-  Produit.all().then(listeProduit=>{
-    //console.log(listeProduit);
-    var lignes = JSON.stringify(listeProduit);
-    var jsonQobj=jsonQ(lignes);
-    var listeId = jsonQobj,
-        id = listeId.find('id');
-    var listeNom = jsonQobj,
-        nom = listeNom.find('nomProduit');
-    var listePrix = jsonQobj,
-        prix = listePrix.find('prixProduit');
-    var listeDescription = jsonQobj,
-        description = listeDescription.find('descriptionProduit');
-    var listeQuantite = jsonQobj,
-        quantite = listeQuantite.find('quantiteProduit');
-    //console.log(id.value());
-    //console.log(lignes);
-    res.render("home", {id: id.value(), nom: nom.value(), prix: prix.value(), description: description.value(), quantite: quantite.value() });
-  })
+	sequelize.query("SELECT * FROM `produit`", { type: sequelize.QueryTypes.SELECT})
+	.then(listeProduit=> {
+		res.render("home", {listeProduit: listeProduit});
+	})
 }

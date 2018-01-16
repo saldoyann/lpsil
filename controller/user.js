@@ -10,7 +10,7 @@ module.exports.connect = function(req,res){
 	}).then(function(user){
 		req.session.user=user[0].dataValues.id;
  		res.cookie( "id",req.session.user ,{ maxAge: 1000 * 60 * 10, httpOnly: false });
-		//res.cookie( "id",user[0].dataValues.id ,{ maxAge: 1000 * 60 * 10, httpOnly: false });
+		res.cookie( "nom",user[0].dataValues.nom ,{ maxAge: 1000 * 60 * 10, httpOnly: false });
 
 		res.redirect("/home"/*,{result :req.session.user }*/);
 	}).catch(function(err){

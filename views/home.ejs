@@ -10,16 +10,35 @@
   }
   </script>
 
-  <p> <% for(var i in %> <%=id%> <%){
-    <table>
-      <tr>
-        <td>Numero du produit</td>
-        <td>%><%= id %><%</td>
-      </tr>
-    </table>
-  } %> </p>
+  	<table>
+  		<tr>
+  			<td>
+  <% listeProduit.forEach(function(produit){ %>
+  	
+			    <table border = 1>
+				    <tr>
+				    	<td colspan="2" style="text-align: center;"><strong><%= produit.nomProduit%></strong></td>
+					</tr>
+			    	<tr>
+			    		<td> Description du produit </td>
+						<td> <%= produit.descriptionProduit %></td>
+					</tr>
+			    	<tr>
+			    		<td> Prix du produit </td>
+						<td> <%= produit.prixProduit %> €</td>
+					</tr>
+			    	<tr>
+			    		<td> Quantité restante pour ce produit </td>
+						<td> <%= produit.quantiteProduit %></td>
+					</tr>
+				</table>
+				<a href="#">Ajouter ce produit au panier </a>
+  <% }); %>
 
-
+			</td>
+		</tr>
+	</table>
+	
 <form method="post">
   <p id="ajoutButton"></p>
   <p>
