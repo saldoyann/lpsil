@@ -46,6 +46,8 @@ app.get('/ping', function(req, res){
 
 app.get('/home', produitController.getProduit);
 
+app.get('/suprProduit', produitController.getProduitForDelete);
+
 app.get('/profil', function(req, res){
     var id = req.query.id;
     var nom = req.query.nom;
@@ -70,9 +72,7 @@ app.get('/ajoutProduit', function(req, res){
     res.render('ajoutProduit');
 });
 
-app.get('/suprProduit', function(req, res){
-    res.render('suprProduit');
-});
+app.get('/suprUsers', userController.getAllUsers);
 
 app.post('/login',userController.connect)
 
@@ -87,6 +87,8 @@ app.post('/modifMdp',userController.changerMdp)
 app.post('/connectionAdmin', userController.connectAdmin)
 
 app.post('/ajoutProduit', produitController.ajout)
+
+app.post('/suprUsers', userController.suprUsers)
 
 app.post('/suprProduit', produitController.suprProduit)
 

@@ -1,4 +1,5 @@
 var User = require('../modele/user.js');
+var sequelize = require('../base.js');
 
 module.exports.connect = function(req,res){
 
@@ -10,8 +11,7 @@ module.exports.connect = function(req,res){
 	}).then(function(user){
 		req.session.user=user[0].dataValues.id;
  		res.cookie( "id",req.session.user ,{ maxAge: 1000 * 60 * 10, httpOnly: false });
-		res.cookie( "nom",user[0].dataValues.nom ,{ maxAge: 1000 * 60 * 10, httpOnly: false });
-
+				
 		res.redirect("/home"/*,{result :req.session.user }*/);
 	}).catch(function(err){
 		console.log(err)
@@ -90,4 +90,23 @@ module.exports.connectAdmin = function(req,res){
 		console.log(err)
 		res.render("error",{result : "Le compte n'existe pas ou n'est pas un administrateur du site"});
 	});
+}
+
+module.exports.getAllUsers = function(req,res){
+
+	sequelize.query("SELECT * FROM `user`", { type: sequelize.QueryTypes.SELECT})
+	.then(listeUsers=>{
+		res.render("suprUsers", {listeUsers: listeUsers});
+	})
+}
+
+module.exports.suprUsers = function(req,res){
+
+  User.destroy({
+    where: { id: req.body.idUsers }
+  }).then(user=> {
+    res.render('panneauAdmin');
+  }).catch(function(err){
+    res.render("error",{result: "Erreur: suppression de l'utilisateur non effectué"});
+  });
 }

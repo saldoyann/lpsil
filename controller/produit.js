@@ -20,7 +20,7 @@ module.exports.suprProduit = function(req,res){
   }).then(produit=> {
     res.render('panneauAdmin');
   }).catch(function(err){
-    res.render("error",{result: "Erreur: suppression non effectué"});
+    res.render("error",{result: "Erreur: suppression de l'article non effectué"});
   });
 }
 
@@ -29,5 +29,13 @@ module.exports.getProduit = function(req,res){
 	sequelize.query("SELECT * FROM `produit`", { type: sequelize.QueryTypes.SELECT})
 	.then(listeProduit=> {
 		res.render("home", {listeProduit: listeProduit});
+	})
+}
+
+module.exports.getProduitForDelete = function(req,res){
+
+	sequelize.query("SELECT * FROM `produit`", { type: sequelize.QueryTypes.SELECT})
+	.then(listeProduitForDelete=> {
+		res.render("suprProduit", {listeProduitForDelete: listeProduitForDelete});
 	})
 }

@@ -1,8 +1,14 @@
 <% var title = 'Formulaire login' %>
 <% include head %>
 
+<div class="w3-display-container " style="height:500px">
+<div class="w3-card-4 w3-display-middle" style="margin-top: 60px">
+
+<div class="w3-container w3-orange">
 <h1>Login</h1>
-<form method="post" action="/login">
+</div>
+
+<form class="w3-container w3-padding-large" method="post" action="/login">
   <p>
     <label>Nom:</label>
     <input type="text" name="nom">
@@ -12,12 +18,14 @@
     <input type="text" name="mdp">
   </p>
   <p>
-    <input type="submit" value="Login">
+    <button class="w3-orange w3-btn w3-round-xxlarge" type="submit">Login</button>
   </p>
 </form>
 
-<p><a href="/inscription">S'inscrire</a></p>
-
-<a href="connectionAdmin">Se connecter en tant qu'administrateur</a>
-
+<ul  class="w3-ul" style="list_style_type:disc; width:100%;">
+  <a class="w3-button w3-hover-orange" style ="text-decoration:none; width:100%" href="/inscription">S'inscrire</a>
+  <a class="w3-button w3-hover-orange" style ="text-decoration:none; width:100%" href="connectionAdmin">Se connecter en tant qu'administrateur</a>
+</ul>
+  </div>
+</div>
 <% include foot %>

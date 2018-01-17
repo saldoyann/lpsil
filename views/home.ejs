@@ -1,21 +1,36 @@
 <% var title = 'HOME' %>
 <% include head %>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<p id="userName">Bonjour </p>
-<script>
-  if(document.cookie){
-    var s= document.getElementById("userName");
-  	s.value = document.cookie.replace(/name=|;|id=|/g,'');
-  	$("#userName").append(s.value);
-  }
-  </script>
+<header>
+<div class="w3-container w3-orange">
+  <div class="w3-display-container">
+    <div class="w3-bar">
+      <div class="w3-bar-item w3-text-white"><h4> Page d'achat </h4></div>
+          <form class="w3-right w3-bar-item" method="post">
+            <p id="ajoutButton"></p>
+            <p>
+              <input class="w3-btn w3-round-xxlarge" type="submit" value="Accéder à votre profil">
+            </p>
+          </form>
+    </div>
+  </div>
+</div>
+</header>
 
-  	<table>
+  <p id="userName"></p>
+  <script>
+    if(document.cookie){
+      var s= document.getElementById("userName");
+    	s.value = document.cookie.replace(/name=|;|id=|/g,'');
+    }
+    </script>
+
+  	<table class="w3-table w3-striped">
   		<tr>
   			<td>
   <% listeProduit.forEach(function(produit){ %>
-  	
-			    <table border = 1>
+
+			    <table class="w3-table">
 				    <tr>
 				    	<td colspan="2" style="text-align: center;"><strong><%= produit.nomProduit%></strong></td>
 					</tr>
@@ -29,22 +44,18 @@
 					</tr>
 			    	<tr>
 			    		<td> Quantité restante pour ce produit </td>
-						<td> <%= produit.quantiteProduit %></td>
+						  <td> <%= produit.quantiteProduit %></td>
 					</tr>
+          <tr>
+            <td colspan="2" style="text-align: center;"><a href="#">Ajouter ce produit au panier </a></td>
+          </tr>
 				</table>
-				<a href="#">Ajouter ce produit au panier </a>
+
   <% }); %>
 
 			</td>
 		</tr>
 	</table>
-	
-<form method="post">
-  <p id="ajoutButton"></p>
-  <p>
-    <input type="submit" value="Accéder à votre profil">
-  </p>
-</form>
 
 <script>
 function ajoutInput(){
