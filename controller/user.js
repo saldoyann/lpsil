@@ -100,6 +100,14 @@ module.exports.getAllUsers = function(req,res){
 	})
 }
 
+module.exports.getAllUsersForModif = function(req,res){
+
+	sequelize.query("SELECT * FROM `user`", { type: sequelize.QueryTypes.SELECT})
+	.then(listeUsersForModif=>{
+		res.render("modifUsers", {listeUsersForModif: listeUsersForModif});
+	})
+}
+
 module.exports.suprUsers = function(req,res){
 
   User.destroy({
@@ -109,6 +117,22 @@ module.exports.suprUsers = function(req,res){
   }).catch(function(err){
     res.render("error",{result: "Erreur: suppression de l'utilisateur non effectué"});
   });
+}
+
+module.exports.modifUsers = function(req,res){
+
+	User.update({
+	nom: req.body.nomModifUser,
+	prenom: req.body.prenomModifUser,
+	email: req.body.emailModifUser,
+	mdp: req.body.mdpModifUser,
+},
+{ where: {id: req.body.idModifUser}} )
+.then(function(user){
+	res.redirect('/panneauAdmin');
+}).catch(function(err){
+	res.render("error",{result: "Erreur : modification données utilisateurs non effectuées"});
+});
 }
 
 module.exports.clearCookie = function (req,res){

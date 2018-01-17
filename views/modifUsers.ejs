@@ -1,0 +1,35 @@
+<% var title = 'Modification donnees user' %>
+<% include head %>
+<header>
+<div class="w3-container w3-orange">
+  <div class="w3-display-container">
+    <div class="w3-bar">
+      <div class="w3-bar-item w3-text-white"><h4 style="text-align: center;">Modifier les données d'un utilisateur</h4></div>
+    </div>
+  </div>
+</div>
+</header>
+
+  <table border="1" class="w3-table w3-striped" style="width: 95%;margin-top: 100px; margin-left: 50px; margin-right: 50px;">
+    <tr>
+      <td>Nom</td>
+      <td>Prenom</td>
+      <td>Email</td>
+      <td>Mot de passe</td>
+      <td></td>
+    </tr>
+  <% listeUsersForModif.forEach(function(usersModif){ %>
+    <tr>
+      <form class="w3-container w3-padding-large" method="post" action="/modifUsers">
+      <td><input class="w3-input w3-border w3-round" type="text" name="nomModifUser" value="<%= usersModif.nom %>"></td>
+      <td><input class="w3-input w3-border w3-round" type="text" name="prenomModifUser" value="<%= usersModif.prenom %>"></td>
+      <td><input class="w3-input w3-border w3-round" type="text" name="emailModifUser" value="<%= usersModif.email %>"></td>
+      <td><input class="w3-input w3-border w3-round" type="text" name="mdpModifUser" value="<%= usersModif.mdp %>">
+      <td><input type="hidden" name="idModifUser" value="<%=usersModif.id%>"><button style="width: 100%;" class="w3-orange w3-btn w3-round-xxlarge" type="submit">Confirmer modifications</button></td>
+
+      </form>
+    </tr>
+<% }); %>
+</table>
+
+<% include foot %>

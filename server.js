@@ -76,6 +76,8 @@ app.get('/deconnexion', userController.clearCookie);
 
 app.get('/suprUsers', userController.getAllUsers);
 
+app.get('/modifUsers', userController.getAllUsersForModif);
+
 app.post('/login',userController.connect)
 
 app.post('/inscription',userController.inscription)
@@ -91,6 +93,8 @@ app.post('/connectionAdmin', userController.connectAdmin)
 app.post('/ajoutProduit', produitController.ajout)
 
 app.post('/suprUsers', userController.suprUsers)
+
+app.post('/modifUsers', userController.modifUsers)
 
 app.post('/suprProduit', produitController.suprProduit)
 
