@@ -33,7 +33,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/login', function(req,res){
-	res.render('login');
+	res.render('login', { req: req});
 });
 
 app.get('/inscription', function(req,res){
@@ -71,6 +71,8 @@ app.get('/panneauAdmin', function(req, res){
 app.get('/ajoutProduit', function(req, res){
     res.render('ajoutProduit');
 });
+
+app.get('/deconnexion', userController.clearCookie);
 
 app.get('/suprUsers', userController.getAllUsers);
 

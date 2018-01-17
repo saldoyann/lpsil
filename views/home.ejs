@@ -1,3 +1,4 @@
+<%# if(req.session.user){ %>
 <% var title = 'HOME' %>
 <% include head %>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -5,11 +6,12 @@
 <div class="w3-container w3-orange">
   <div class="w3-display-container">
     <div class="w3-bar">
-      <div class="w3-bar-item w3-text-white"><h4> Page d'achat </h4></div>
-          <form class="w3-right w3-bar-item" method="post">
+      <div class="w12-bar-item w3-text-white"><h4 style="text-align: center;"> Page d'achat </h4></div>
+      <div class="w12-bar-item w3-btn w3-round-xxlarge w3-text-white"><a style ="text-decoration:none;" href="/deconnexion">Se deconnecter</a></div>
+          <form class="w12-bar-item" method="post">
             <p id="ajoutButton"></p>
             <p>
-              <input class="w3-btn w3-round-xxlarge" type="submit" value="Accéder à votre profil">
+              <input class="w3-btn w3-round-xxlarge w3-text-white" type="submit" value="Accéder à votre profil">
             </p>
           </form>
     </div>
@@ -25,12 +27,10 @@
     }
     </script>
 
-  	<table class="w3-table w3-striped">
-  		<tr>
-  			<td>
+
   <% listeProduit.forEach(function(produit){ %>
 
-			    <table class="w3-table">
+			    <table class="w3-table w3-striped">
 				    <tr>
 				    	<td colspan="2" style="text-align: center;"><strong><%= produit.nomProduit%></strong></td>
 					</tr>
@@ -50,12 +50,10 @@
             <td colspan="2" style="text-align: center;"><a href="#">Ajouter ce produit au panier </a></td>
           </tr>
 				</table>
+				<br />
 
   <% }); %>
 
-			</td>
-		</tr>
-	</table>
 
 <script>
 function ajoutInput(){
@@ -69,3 +67,5 @@ insertion.appendChild(input);
 ajoutInput();
 </script>
 <% include foot %>
+<%#} else { %> 
+<%# } %>

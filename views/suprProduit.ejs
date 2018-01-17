@@ -1,12 +1,22 @@
+<%# if(req.session.user && req.session.user.admin == 1) %>
 <% var title = 'supression article' %>
 <% include head %>
+<header>
+<div class="w3-container w3-orange">
+  <div class="w3-display-container">  
+    <div class="w3-bar">
+      <div class="w3-bar-item w3-text-white"><h4 style="text-align: center;">Supprimer un produit</h4></div>
+    </div>
+  </div>
+</div>
+</header>
 
-  	<table>
+  	<table class="w3-table" style="width: 95%;margin-top: 100px; margin-left: 50px; margin-right: 50px;">
   		<tr>
   			<td>
   <% listeProduitForDelete.forEach(function(produit){ %>
 
-			    <table border = 1>
+			    <table class="w3-striped">
 				    <tr>
 				    	<td colspan="2" style="text-align: center;"><strong><%= produit.nomProduit%></strong></td>
 					</tr>
@@ -23,10 +33,10 @@
 						<td> <%= produit.quantiteProduit %></td>
 					</tr>
 				</table>
-        <form method="post" action="/suprProduit">
+        <form class="w3-container w3-padding-large" method="post" action="/suprProduit">
               <input type="hidden" name="idProduit" value="<%=produit.id%>">
               <p>
-                <input type="submit" value="Supprimer">
+                <button class="w3-orange w3-btn w3-round-xxlarge" type="submit">Supprimer</button>
               </p>
         </form>
   <% }); %>

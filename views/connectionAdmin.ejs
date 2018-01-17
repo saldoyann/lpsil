@@ -1,19 +1,31 @@
 <% var title = 'Formulaire connection espace admin' %>
 <% include head %>
 
-<h1>Connection à l'espace administrateur</h1>
-<form method="post">
+<div class="w3-display-container " style="height:500px">
+<div class="w3-card-4 w3-display-middle" style="margin-top: 60px">
+
+<div class="w3-container w3-orange">
+<h1>Espace administrateur</h1>
+</div>
+
+<form class="w3-container w3-padding-large" method="post">
   <p>
     <label>Nom:</label>
-    <input type="text" name="nomAdmin">
+    <input class="w3-input w3-border w3-round" type="text" name="nomAdmin">
   </p>
   <p>
     <label>Password:</label>
-    <input type="text" name="mdpAdmin">
+    <input class="w3-input w3-border w3-round" type="text" name="mdpAdmin">
   </p>
   <p>
-    <input type="submit" value="Login">
+   <button class="w3-orange w3-btn w3-round-xxlarge" type="submit">Login</button>
   </p>
 </form>
 
+<ul  class="w3-ul" style="list_style_type:disc; width:100%;">
+  <a class="w3-button w3-hover-orange" style ="text-decoration:none; width:100%" href="/login">Revenir à la page de connexion</a>
+</ul>
+
+  </div>
+</div>
 <% include foot %>

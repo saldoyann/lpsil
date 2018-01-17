@@ -1,9 +1,16 @@
 <% var title = 'Suppression users' %>
 <% include head %>
+<header>
+<div class="w3-container w3-orange">
+  <div class="w3-display-container">  
+    <div class="w3-bar">
+      <div class="w3-bar-item w3-text-white"><h4 style="text-align: center;">Supprimer un utilisateur</h4></div>
+    </div>
+  </div>
+</div>
+</header>
 
-<h1>Supprimer un utilisateur de la base de donnée</h1>
-
-  <table border="1">
+  <table border="1" class="w3-table w3-striped" style="width: 95%;margin-top: 100px; margin-left: 50px; margin-right: 50px;">
     <tr>
       <td>Nom</td>
       <td>Prenom</td>
@@ -17,10 +24,10 @@
       <td><%= users.prenom %></td>
       <td><%= users.email %></td>
       <td><%= users.mdp %></td>
-      <td><form method="post" action="/suprUsers">
+      <td><form class="w3-container w3-padding-large" method="post" action="/suprUsers">
             <input type="hidden" name="idUsers" value="<%=users.id%>">
             <p>
-              <input type="submit" value="Supprimer">
+              <button style="width: 100%;" class="w3-orange w3-btn w3-round-xxlarge" type="submit">Supprimer</button>
             </p>
       </form> </td>
     </tr>

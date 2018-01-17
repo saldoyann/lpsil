@@ -9,9 +9,9 @@ module.exports.connect = function(req,res){
 			mdp: req.body.mdp
 		}
 	}).then(function(user){
-		req.session.user=user[0].dataValues.id;
- 		res.cookie( "id",req.session.user ,{ maxAge: 1000 * 60 * 10, httpOnly: false });
-				
+		req.session.user=user[0].dataValues;
+		id = req.session.user.id;
+ 		res.cookie( "id",id ,{ maxAge: 1000 * 60 * 10, httpOnly: false });
 		res.redirect("/home"/*,{result :req.session.user }*/);
 	}).catch(function(err){
 		console.log(err)
@@ -109,4 +109,10 @@ module.exports.suprUsers = function(req,res){
   }).catch(function(err){
     res.render("error",{result: "Erreur: suppression de l'utilisateur non effectué"});
   });
+}
+
+module.exports.clearCookie = function (req,res){
+	req.session.destroy();
+	res.clearCookie("id");
+	res.redirect("/");
 }

@@ -1,30 +1,39 @@
 <% var title = 'profil' %>
 <% include head %>
+<div class="w3-display-container " style="height:500px">
+<div class="w3-card-4 w3-display-middle" style="margin-top: 60px">
 
+<div class="w3-container w3-orange">
 <h1>Votre profil</h1>
+</div>
 
-<form method="post">
+<form class="w3-container w3-padding-large" method="post">
   <p>
-    <input type="hidden" name="idUser" value="<%= id %>">
+    <input class="w3-input w3-border w3-round" type="hidden" name="idUser" value="<%= id %>">
   </p>
   <p>
-    <input type="text" name="nomUser" value="<%= nom %>">
+  	<label>Nom : </label>
+    <input class="w3-input w3-border w3-round" type="text" name="nomUser" value="<%= nom %>">
   </p>
   <p>
-    <input type="text" name="prenomUser" value="<%= prenom %>">
+  	<label>Prenom : </label>
+    <input class="w3-input w3-border w3-round" type="text" name="prenomUser" value="<%= prenom %>">
   </p>
   <p>
-    <input type="text" name="emailUser" value="<%= email %>">
+  	<label>Email : </label>
+    <input class="w3-input w3-border w3-round" type="text" name="emailUser" value="<%= email %>">
   </p>
   <p>
-    <input type="submit" name="valider" value="Changer les informations du compte">
+    <button class="w3-orange w3-btn w3-round-xxlarge" type="submit">Valider vos modifications</button>
   </p>
 </form>
 
-<h1> Modifier votre mot de passe </h1>
+<ul class="w3-ul" style="list_style_type:disc; width:100%;">
+	<a class="w3-button w3-hover-orange" style ="text-decoration:none; width:100%" href="/modifMdp">Modifier votre mot de passe </a>
 
-<p> Vous pouvez modifier votre mot de passe par <a href="/modifMdp">ici </a></p>
-
-<a href="/home">Retourner à l'espace d'achat</a>
+	<a class="w3-button w3-hover-orange" style ="text-decoration:none; width:100%" href="/home">Retourner à l'espace d'achat</a>
+</ul>
+</div>
+</div>
 
 <% include foot %>
